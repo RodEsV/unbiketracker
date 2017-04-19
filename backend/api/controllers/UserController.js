@@ -7,6 +7,7 @@
 
 module.exports = {
 	find: function(req, res) {
+
   },
 
   create: function() {
