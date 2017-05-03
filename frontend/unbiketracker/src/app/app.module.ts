@@ -13,6 +13,8 @@ import { AuthModule } from "./auth/auth.module";
 import { HomeModule } from "./home/home.module";
 import { MapModule } from "./map/map.module";
 import { AgmCoreModule } from "@agm/core";
+import { MdButtonModule, MdSidenavModule } from "@angular/material";
+import { LayoutsModule } from "./layouts/layouts.module";
 
 @NgModule({
   declarations: [
@@ -24,10 +26,13 @@ import { AgmCoreModule } from "@agm/core";
     AppRoutingModule,
     HttpModule,
     MaterializeModule,
+    MdSidenavModule,
+    MdButtonModule,
 
     AuthModule,
     HomeModule,
-    MapModule
+    MapModule,
+    LayoutsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
