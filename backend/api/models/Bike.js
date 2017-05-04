@@ -4,6 +4,7 @@
  * @description :: TODO: You might write a short summary of how this model works and what it represents here.
  * @docs        :: http://sailsjs.org/documentation/concepts/models-and-orm/models
  */
+
 module.exports = {
 
   autoPK: false,
@@ -13,29 +14,29 @@ module.exports = {
   schema: true,
 
   attributes: {
-
     serial: {
-      type: 'text',
+      type: 'string',
       primaryKey: true,
+      size: 50,
       unique: true,
-      required: true,
+      required: true
     },
 
     brand: {
       type: 'string',
-      size: 20,
+      size: 30,
       required: true
     },
 
     model: {
       type: 'string',
-      size: 20,
+      size: 30,
       required: true
     },
 
     color: {
       type: 'string',
-      size: 10,
+      size: 20,
       required: true
     },
 
@@ -50,15 +51,25 @@ module.exports = {
       required: true
     },
 
-    unitDiameterRim: {
+    diameterRimUnit: {
       type: 'string',
-      size: '10',
+      size: 10,
       required: true
     },
 
     dateBought: {
       type: 'datetime',
       required: true
+    },
+
+    user: {
+      model: 'user'
+    },
+
+    device: {
+      model: 'device',
+      unique: true
     }
   }
+
 };

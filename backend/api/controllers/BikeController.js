@@ -9,26 +9,43 @@
 * */
 
 module.exports = {
+
   find: function (req, res) {
     Bike.find().exec((err, bikes) => {
-      if(err){
-        return res.status(500).json({err: err});
+      if (err) {
+        return res.status(500).json({ error: err });
       }
-      return res.status(200).json({bikes: bikes})
+
+      return res.status(200).json({ bikes: bikes });
+    });
+  },
+
+  findOne: function(req, res) {
+    if (! res.params.id) {
+      return res.status(400).json({ error: 'ID is required' });
+    }
+
+    Bike.find().exec((err, bikes) => {
+      if (err) {
+        return res.status(500).json({ error: err });
+      }
+
+      return res.status(200).json({bikes: bikes});
     });
   },
 
   create: function (req, res) {
     Bike.create(req.body).exec((err, newBike) => {
-      if(err){
-        return res.status(500).json({ err: err});
+      if (err) {
+        return res.status(500).json({ error: err });
       }
-      return res.status(200).json({newBike: newBike})
+
+      return res.status(200).json({ bike: newBike });
     })
   },
 
   update: function (req, res) {
-    Bike.findOne({serial: req.params.id}).exec((err, bike) => {
+    Bike.findOne({ serial: req.params.id }).exec((err, bike) => {
       if(err)
         return res.status(500).json({err: err});
       else if (!bike)
@@ -57,5 +74,6 @@ module.exports = {
       });
     });
   }
+
 };
 

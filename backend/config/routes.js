@@ -24,20 +24,6 @@ module.exports.routes = {
 
   /***************************************************************************
   *                                                                          *
-  * Make the view located at `views/homepage.ejs` (or `views/homepage.jade`, *
-  * etc. depending on your default view engine) your home page.              *
-  *                                                                          *
-  * (Alternatively, remove this and add an `index.html` file in your         *
-  * `assets` directory)                                                      *
-  *                                                                          *
-  ***************************************************************************/
-
-  '/': {
-    view: 'homepage'
-  },
-
-  /***************************************************************************
-  *                                                                          *
   * Custom routes here...                                                    *
   *                                                                          *
   * If a request to a URL doesn't match any of the custom routes above, it   *
@@ -45,5 +31,39 @@ module.exports.routes = {
   * for configuration options and examples.                                  *
   *                                                                          *
   ***************************************************************************/
-  //'PUT /bike/:serial': 'BikeController.update'
+
+  // Auth URLs
+  'POST /auth/signin': 'AuthController.signin',
+  'POST /auth/signup': 'AuthController.signup',
+  'POST /auth/forgot': 'AuthController.forgot',
+  'POST /auth/logout': 'AuthController.logout',
+
+  // Bike URLs
+  'GET /bike': 'BikeControler.find',
+  'GET /bike/{id}': 'BikeControler.findOne',
+  'POST /bike': 'BikeControler.create',
+  'PATCH /bike/{id}': 'BikeControler.update',
+  'DELETE /bike/{id}': 'BikeControler.destroy',
+
+  // Device URLs
+  'GET /device': 'DeviceController.find',
+  'GET /device/{id}': 'DeviceController.findOne',
+  'POST /device': 'DeviceController.create',
+  'PATCH /device/{id}': 'DeviceController.update',
+  'DELETE /device/{id}': 'DeviceController.destroy',
+
+  // Location URLs
+  'GET /location': 'LocationController.find',
+  'GET /location/{id}': 'LocationController.findOne',
+  'POST /location': 'LocationController.create',
+  'PATCH /location/{id}': 'LocationController.update',
+  'DELETE /location/{id}': 'LocationController.destroy',
+
+  // User URLs
+  'GET /user': 'UserController.find',
+  'GET /user/{id}': 'UserController.findOne',
+  // 'POST /user': 'UserController.create',
+  'PATCH /user/{id}': 'UserController.update',
+  'DELETE /user/{id}': 'UserController.destroy'
+
 };

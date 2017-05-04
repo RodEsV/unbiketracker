@@ -1,5 +1,5 @@
 /**
- * Tracker.js
+ * Auth.js
  *
  * @description :: TODO: You might write a short summary of how this model works and what it represents here.
  * @docs        :: http://sailsjs.org/documentation/concepts/models-and-orm/models
@@ -9,40 +9,34 @@ let uuid = require('node-uuid');
 
 module.exports = {
 
-  autoPK: false,
-  autoCreatedAt: true,
-  autoUpdatedAt: false,
-  tableName: 'locations',
+  autoPK: true,
+  tableName: 'sessions',
   schema: true,
 
   attributes: {
-    id: {
+    sessionId: {
       type: 'string',
-      size: 36,
-      primaryKey: true,
       required: true,
+      primaryKey: true,
+      unique: true,
       defaultsTo: function() { return uuid.v4(); }
     },
 
-    latitude: {
+    token: {
       type: 'string',
-      size: 100,
+      size: 255,
+      unique: true,
+      primaryKey: true,
       required: true
     },
 
-    longitude: {
-      type: 'string',
-      size: 100,
+    expiredAt: {
+      type: 'datetime',
       required: true
     },
 
-    device: {
-      model: 'device'
-    },
-
-    bike: {
-      model: 'bike'
+    user: {
+      model: 'user'
     }
   }
 };
-
