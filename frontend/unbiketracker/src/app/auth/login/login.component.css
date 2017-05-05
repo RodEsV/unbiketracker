@@ -1,11 +1,14 @@
-.main_button{
+.main-button{
   width: 200px;
   height: 90px;
   float: right;
 }
 
-.input_on_image{
-  background-color: #a8d271;
+.card {
+  opacity: 0.95;
+}
+
+.input-on-image{
   color: #000000;
   margin-bottom: 0px;
 }
