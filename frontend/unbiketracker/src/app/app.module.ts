@@ -13,7 +13,7 @@ import { AuthModule } from "./auth/auth.module";
 import { HomeModule } from "./home/home.module";
 import { MapModule } from "./map/map.module";
 import { AgmCoreModule } from "@agm/core";
-import { MdButtonModule, MdSidenavModule } from "@angular/material";
+import { MdButtonModule, MdSidenavModule, MdToolbarModule } from "@angular/material";
 import { LayoutsModule } from "./layouts/layouts.module";
 
 @NgModule({
@@ -28,6 +28,7 @@ import { LayoutsModule } from "./layouts/layouts.module";
     MaterializeModule,
     MdSidenavModule,
     MdButtonModule,
+    MdToolbarModule,
 
     AuthModule,
     HomeModule,

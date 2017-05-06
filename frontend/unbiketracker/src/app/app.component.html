@@ -1,1 +1,21 @@
-<router-outlet class="content"></router-outlet>
+<md-sidenav-container class="docs-component-viewer-sidenav-container">
+  <md-sidenav mode="side" opened="true" class="docs-component-viewer-sidenav">
+    <nav>
+      <ul>
+        <li class="text-center">
+          ¿Quiénes somos?
+        </li>
+      </ul>
+    </nav>
+    <nav>
+      <ul>
+        <li>
+          ¿De dónde venimos?
+        </li>
+      </ul>
+    </nav>
+  </md-sidenav>
+  <div class="content">
+    <router-outlet></router-outlet>
+  </div>
+</md-sidenav-container>
