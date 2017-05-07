@@ -30,6 +30,7 @@ import { LayoutsModule } from "./layouts/layouts.module";
     MdButtonModule,
     MdToolbarModule,
 
+
     AuthModule,
     HomeModule,
     MapModule,

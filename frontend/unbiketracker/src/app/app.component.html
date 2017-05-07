@@ -1,21 +1,23 @@
 <md-sidenav-container class="docs-component-viewer-sidenav-container">
   <md-sidenav mode="side" opened="true" class="docs-component-viewer-sidenav">
-    <nav>
-      <ul>
-        <li class="text-center">
-          ¿Quiénes somos?
-        </li>
-      </ul>
-    </nav>
-    <nav>
-      <ul>
-        <li>
-          ¿De dónde venimos?
-        </li>
-      </ul>
-    </nav>
+    <button md-raised-button style="margin-bottom: 10%; width: 300px; height: 60px">
+      ¿Quiénes somos?
+    </button>
+    <button md-raised-button style="margin-bottom: 10%; width: 300px; height: 60px">
+      ¿Por qué existimos?
+    </button>
+    <button md-raised-button style="margin-bottom: 10%; width: 300px; height: 60px">
+      ¿De dónde venimos?
+    </button>
+    <button md-raised-button style="margin-bottom: 10%; width: 300px; height: 60px">
+      ¿Hacia dónde vamos?
+    </button>
   </md-sidenav>
   <div class="content">
-    <router-outlet></router-outlet>
+      <div class="row">
+        <div class="col s12">
+          <router-outlet></router-outlet>
+        </div>
+      </div>
   </div>
 </md-sidenav-container>

@@ -5,11 +5,11 @@ md-sidenav-container, .content {
 }
 
 md-sidenav {
-  width: 200px;
+  width: 300px;
 }
 
 .mat-sidenav-container {
-  position: fixed;
+  position: absolute;
   box-sizing: border-box;
   -webkit-overflow-scrolling: touch;
 }
