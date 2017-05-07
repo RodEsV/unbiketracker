@@ -1,0 +1,20 @@
+.main-button{
+  width: 200px;
+  height: 90px;
+  float: right;
+}
+
+.card {
+  opacity: 0.95;
+}
+
+.input-on-image{
+  color: #000000;
+  margin-bottom: 0px;
+}
+
+.form-image {
+  background-image: url(http://www.performancebike.com/images/performance/web/Performance%20Homepage/17PBS_05_01_Heroes_02.jpg);
+  background-repeat: no-repeat;
+  color: #FFFFFF;
+}
