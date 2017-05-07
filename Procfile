@@ -1,1 +1,1 @@
-web: node backend/app.js --prod
+api: node app.js --prod

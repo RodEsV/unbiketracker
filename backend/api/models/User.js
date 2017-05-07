@@ -5,8 +5,8 @@
  * @docs        :: http://sailsjs.org/documentation/concepts/models-and-orm/models
  */
 
-let uuid = require('node-uuid');
-let bcrypt = require('bcrypt');
+var uuid = require('node-uuid');
+var bcrypt = require('bcrypt');
 
 module.exports = {
 

@@ -2,11 +2,11 @@
  * Created by eccarrilloe on 4/05/17.
  */
 
-let jwt = require('jsonwebtoken');
+var jwt = require('jsonwebtoken');
 
 module.exports = {
   generateToken: function(payload,options) {
-    let token = jwt.sign(payload, sails.config.session.secret, options);
+    var token = jwt.sign(payload, sails.config.session.secret, options);
     return token;
   },
 

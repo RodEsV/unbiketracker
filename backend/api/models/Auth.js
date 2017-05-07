@@ -5,7 +5,7 @@
  * @docs        :: http://sailsjs.org/documentation/concepts/models-and-orm/models
  */
 
-let uuid = require('node-uuid');
+var uuid = require('node-uuid');
 
 module.exports = {
 
