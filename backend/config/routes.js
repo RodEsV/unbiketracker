@@ -35,35 +35,36 @@ module.exports.routes = {
   // Auth URLs
   'POST /auth/signin': 'AuthController.signin',
   'POST /auth/signup': 'AuthController.signup',
+  'POST /auth/check': 'AuthController.check',
   'POST /auth/forgot': 'AuthController.forgot',
   'POST /auth/logout': 'AuthController.logout',
 
   // Bike URLs
   'GET /bike': 'BikeControler.find',
   'GET /bike/{id}': 'BikeControler.findOne',
+  'GET /bike/{userId}': 'BikeControler.findByUser',
   'POST /bike': 'BikeControler.create',
-  'PATCH /bike/{id}': 'BikeControler.update',
+  'PUT /bike/{id}': 'BikeControler.update',
   'DELETE /bike/{id}': 'BikeControler.destroy',
 
   // Device URLs
   'GET /device': 'DeviceController.find',
   'GET /device/{id}': 'DeviceController.findOne',
   'POST /device': 'DeviceController.create',
-  'PATCH /device/{id}': 'DeviceController.update',
+  'PUT /device/{id}': 'DeviceController.update',
   'DELETE /device/{id}': 'DeviceController.destroy',
 
   // Location URLs
   'GET /location': 'LocationController.find',
   'GET /location/{id}': 'LocationController.findOne',
   'POST /location': 'LocationController.create',
-  'PATCH /location/{id}': 'LocationController.update',
+  'PUT /location/{id}': 'LocationController.update',
   'DELETE /location/{id}': 'LocationController.destroy',
 
   // User URLs
   'GET /user': 'UserController.find',
   'GET /user/{id}': 'UserController.findOne',
-  // 'POST /user': 'UserController.create',
-  'PATCH /user/{id}': 'UserController.update',
+  'PUT /user/{id}': 'UserController.update',
   'DELETE /user/{id}': 'UserController.destroy'
 
 };

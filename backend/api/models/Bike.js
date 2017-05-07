@@ -5,6 +5,9 @@
  * @docs        :: http://sailsjs.org/documentation/concepts/models-and-orm/models
  */
 
+let uuid = require('node-uuid');
+
+
 module.exports = {
 
   autoPK: false,
@@ -14,9 +17,17 @@ module.exports = {
   schema: true,
 
   attributes: {
-    serial: {
+    id: {
       type: 'string',
       primaryKey: true,
+      unique: true,
+      required: true,
+      size: 36,
+      defaultsTo: function(){ return uuid.v4(); }
+    },
+
+    serial: {
+      type: 'string',
       size: 50,
       unique: true,
       required: true
@@ -63,12 +74,12 @@ module.exports = {
     },
 
     user: {
-      model: 'user'
+      model: 'user',
+      required: true
     },
 
     device: {
-      model: 'device',
-      unique: true
+      model: 'device'
     }
   }
 

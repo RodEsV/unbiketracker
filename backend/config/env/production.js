@@ -34,7 +34,7 @@ module.exports = {
   connections: {
     mongoprod: {
       adapter: 'sails-mongo',
-      url: 'mongodb://localhost:27017/users'
+      url: 'mongodb://localhost:27017/unbiketracker'
     },
   }
 

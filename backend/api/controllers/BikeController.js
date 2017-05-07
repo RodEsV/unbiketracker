@@ -22,15 +22,29 @@ module.exports = {
 
   findOne: function(req, res) {
     if (! res.params.id) {
-      return res.status(400).json({ error: 'ID is required' });
+      return res.status(400).json({ error: 'bikeId is required' });
     }
 
-    Bike.find().exec((err, bikes) => {
+    Bike.findOne({ id: req.params.id }).exec((err, bike) => {
       if (err) {
         return res.status(500).json({ error: err });
       }
 
-      return res.status(200).json({bikes: bikes});
+      return res.status(200).json({ bike: bike });
+    });
+  },
+
+  findByUser: function(req, res) {
+    if (! req.params.userId) {
+      return res.status(401).json({ error: 'user is required' });
+    }
+
+    Bike.find({ user: req.params.userId }).exec((err, bikes) => {
+      if (err) {
+        return res.status(500).json({ error: err });
+      }
+
+      return res.status(200).json({ bikes: bikes });
     });
   },
 
@@ -40,37 +54,43 @@ module.exports = {
         return res.status(500).json({ error: err });
       }
 
-      return res.status(200).json({ bike: newBike });
+      return res.status(200).json({ newBike: newBike });
     })
   },
 
   update: function (req, res) {
-    Bike.findOne({ serial: req.params.id }).exec((err, bike) => {
-      if(err)
-        return res.status(500).json({err: err});
-      else if (!bike)
-        return res.status(200).json({ message: "Bike with Serial " + req.params.id + " not found"})
-      let data = req.body;
-      Bike.update({serial: req.params.id}, data).exec((err, bikeUpdated) => {
-        if(err)
-          return res.status(500).json({err: err})
-        return res.status(200).json({ bikeUpdated: bikeUpdated})
-      })
+    Bike.findOne({ id: req.params.id }).exec((err, bike) => {
+      if(err) {
+        return res.status(500).json({ error: err });
+      } else if (!bike) {
+        return res.status(200).json({ message: "Bike not found with ID " + req.params.id });
+      }
 
-    })
+      let data = req.body;
+      Bike.update({ id: req.params.id }, data).exec((err, bikeUpdated) => {
+        if(err) {
+          return res.status(500).json({ error: err });
+        }
+
+        return res.status(200).json({ bikeUpdated: bikeUpdated})
+      });
+    });
   },
 
   destroy: function(req, res) {
+    Bike.findOne({ id: req.params.id }).exec((err, bike) => {
+      if (err) {
+        return res.status(500).json({ error: err });
+      } else if (!bike) {
+        return res.status(401).json({ message: 'Bike not found with ID ' + req.params.id });
+      }
 
-    Bike.findOne({ serial: req.params.id }).exec((err, bike) => {
-      if (err)
-        return res.status(500).json({ err: err });
-      if (! bike)
-        return res.status(200).json({ message: 'Bike not found with ID ' + req.params.id })
-      Bike.destroy({ serial: req.params.id }).exec((err, bikeDeleted) => {
-        if (err)
-          return res.status(500).json({ err: err });
-        return res.status(200).json({ userDeleted: bikeDeleted });
+      Bike.destroy({ id: req.params.id }).exec((err) => {
+        if (err) {
+          return res.status(500).json({ error: err });
+        }
+
+        return res.status(200).json({ bikeDeleted: bike });
       });
     });
   }
