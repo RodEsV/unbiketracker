@@ -15,13 +15,22 @@ module.exports = {
   schema: true,
 
   attributes: {
-    serial: {
+
+    id: {
       type: 'string',
       size: 36,
       primaryKey: true,
       unique: true,
       required: true,
       defaultsTo: function () { return uuid.v4(); }
+    },
+
+    serial: {
+      type: 'string',
+      size: 24,
+      unique: true,
+      required: true,
+      defaultsTo: function () { return uuid.v4().subtring(24, 0); }
     },
 
     token: {
@@ -32,14 +41,18 @@ module.exports = {
       defaultsTo: function () { return uuid.v4().substring(8, 0); }
     },
 
+    activatedAt: {
+      type: 'datetime'
+    },
+
     user: {
       model: 'user'
     },
 
     bike: {
-      model: 'bike',
-      unique: true
+      model: 'bike'
     }
   }
+
 };
 

@@ -14,7 +14,7 @@ module.exports = {
   schema: true,
 
   attributes: {
-    sessionId: {
+    session: {
       type: 'string',
       required: true,
       primaryKey: true,
